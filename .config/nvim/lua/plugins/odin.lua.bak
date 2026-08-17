@@ -1,0 +1,31 @@
+local M ={
+    {
+	"cephei8/odin.nvim",
+	lazy = false,
+	config = function ()
+	    require("telescope").load_extension("odin")
+	    require("odin").setup({
+		commands = {
+		    run = {"odin", "run" , "." }
+		},
+	    })
+	    vim.api.nvim_create_autocmd("FileType",{
+		pattern = "odin",
+		callback = function ()
+		    -- vim.keymap.set("n","<leader>or",vim.cmd("Odin run"),{desc = "odin run"})
+		    -- vim.keymap.set("n","<leader>ob",vim.cmd("Odin build"),{desc = "odin build"})
+		    vim.keymap.set("n","<leader>of",vim.cmd("Odin fmt"),{desc = "odin fmt"})
+		end,
+	    })
+	end
+	-- opts = {
+	    --     config = function ()
+		--     require("telescope").load_extension("odin")
+		--     end
+		--     ,
+		--
+		--
+		-- },
+	    },
+	}
+	return M

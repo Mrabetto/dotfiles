@@ -1,0 +1,6 @@
+binds {
+    Alt+F4 hotkey-overlay-title="Power Menu: Open" { spawn "dms" "ipc" "call" "powermenu" "open"; }
+    CTRL+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Ctrl+Shift+Escape hotkey-overlay-title="Settings: Toggle" { spawn "dms" "ipc" "call" "settings" "toggle"; }
+    // Alt+Ctrl+K hotkey-overlay-title="Suspend" { suspend; }
+}

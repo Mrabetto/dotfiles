@@ -1,0 +1,182 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+#:tombi schema.strict = false
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+# console_title_template = '{{.Shell}} in {{.PWD}}'
+version = 4
+# final_space = true
+[palette]
+color_fg0 = '#385D70'
+color_fg1 = '#8CB8F0'
+color_bg1 = '#00A2F0'
+color_bg2 = '#2A3033'
+color_bg3 = '#2E3E46'
+text_1 = '#385D70'
+blu_2 = '#218EC5'
+orange = '#F08500'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+red = '#cc241d'
+blu_1 = '#00A2F0'
+main = '#2BE9F0'
+blue = '#0000FF'
+white = '#ffffff'
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'    
+newline = true 
+    [[blocks.segments]]
+	template = '{{ if .Segments.Session.SSHSession}}-{{ end }}{{.Icon}}'
+	type = 'os'
+	style = 'diamond'
+	leading_diamond = ''
+	# trailing_diamond = ''
+	foreground = 'p:text_1'
+	background = 'p:main'
+
+    [[blocks.segments]]
+	trailing_diamond = ''
+	powerline_symbol = ''
+	template = '{{ .UserName }} '
+	foreground = 'p:text_1'
+	background = 'p:main'
+	type = 'session'
+	style = 'accordion'
+
+    [[blocks.segments]]
+	type = 'path'
+	style = 'accordion'
+	trailing_diamond = ''
+	powerline_symbol = ''
+	foreground = 'p:text_1'
+	background = 'p:blu_1'
+	mapped_locations_enabled = true
+	# template = ' {{ .Path}} '
+	template = '  {{ path .Path .Location }} '
+
+	[blocks.segments.options]
+	    style = 'full'
+
+	    [blocks.segments.options.mapped_locations]
+	    "/home/noriyaki/Documents" = "󰈙 "
+	    "~/Downloads" = " "
+	    "~/Music" = "󰝚 "
+	    "~/Pictures" = " "
+	    "~/Developer" = "󰲋 "
+
+    [[blocks.segments]]
+        template = ' {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+	foreground = 'p:text_1'
+	powerline_symbol = ''
+	leading_powerline_symbol = ''
+	# trailing_diamond = ''
+	# leading_diamond = ''
+	background = 'p:blu_2'
+	type = 'git'
+	style = 'accordion'
+	# background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}', '{{ if gt .Ahead 0 }}#49416D{{ end }}', '{{ if gt .Behind 0 }}#7A306C{{ end }}']
+	# foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:text_1{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:text_1{{ end }}', '{{ if gt .Ahead 0 }}p:text_1{{ end }}']
+
+	[blocks.segments.options]
+	  branch_template = '{{ trunc 25 .Branch }}'
+	  branch_icon = " "
+	  fetch_status = true
+	  fetch_upstream_icon = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+      type = "executiontime"
+      style = "plain"
+      template = '<#d79921>took</> {{.FormattedMs}} '
+      foreground = 'green'
+      [blocks.segments.options]
+	style ="roundrock"
+
+  [[blocks.segments]]
+    template = ' {{.Full}}'
+    foreground = 'p:green'
+    background = 'transparent'
+    type = 'node'
+    style = 'plain'
+
+    [blocks.segments.options]
+      display_mode = 'files'
+      fetch_package_manager = false
+      home_enabled = false
+
+  [[blocks.segments]]
+    template = '  {{.Full}}'
+    # foreground = 'p:blue'
+    background = 'transparent'
+    type = 'go'
+    style = 'plain'
+
+    [blocks.segments.options]
+      fetch_version = true
+
+  [[blocks.segments]]
+    template = '  {{ .Full }} '
+    # foreground = 'p:red'
+    background = 'transparent'
+    type = 'python'
+    style = 'plain'
+
+    [blocks.segments.options]
+      display_mode = 'files'
+      fetch_version = true 
+      fetch_virtual_env = false
+
+  [[blocks.segments]]
+    template = '  {{ .Full }} '
+    # foreground = 'p:red'
+    background = 'transparent'
+    type = 'lua'
+    style = 'plain'
+
+  [[blocks.segments]]
+    template = ' <b>{{ .Name }}</b> '
+    foreground = 'p:color_fg1'
+    background = 'black'
+    type = 'shell'
+    style = 'diamond'
+    leading_diamond=''
+    trailing_diamond=''
+
+  [[blocks.segments]]
+    template = '  <b>{{ .CurrentDate | date "15:04" }}</b> '
+    foreground = 'p:color_fg1'
+    background = 'p:color_bg3'
+    type = 'time'
+    style = 'diamond'
+    # leading_diamond=''
+    # leading_diamond=''
+    # trailing_diamond=''
+
+[[blocks]]
+    type = "prompt"
+    alignment = "left"
+    newline = true 
+    [[blocks.segments]]
+	type = "text"
+	style = "plain"
+	foreground = 'p:orange'
+	background = 'transparent'
+	template = ' ❯ '
+
+[transient_prompt]
+    foreground = 'p:orange'
+    background = 'transparent'
+    template = '{{ now | date "15:04" }} ❯ '
+    # template = "{{ .Shell }}> "
+
+	#  [[transient_prompt.segments]]
+	#      type = "executiontime"
+	#      style = "plain"
+	#      template = '<#d79921>took</> {{.FormattedMs}}'
+	#      foreground = 'green'
+	#      [blocks.segments.options]
+	# style ="roundrock"
+    
