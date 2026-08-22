@@ -10,6 +10,11 @@ M2 = {
 		name = "Misc",
 		path = "~/Documents/Research/Misc/",
 	    },
+	    {
+		name = "phone",
+		path = "~/storage/shared/Kde/markdown/"
+	    }
+
 	},
 	ui = {
 	    enable =false,
@@ -79,9 +84,13 @@ Old = {
 		enable = false,
 	    },
 	    workspaces = {
+		-- {
+		--     name = "misc",
+		--     path = "~/documents/research/misc/",
+		-- },
 		{
-		    name = "misc",
-		    path = "~/documents/research/misc/",
+		    name = "phone",
+		    path = "~/storage/shared/Kde/markdown/"
 		},
 	    },
 	    checkbox = {
