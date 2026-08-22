@@ -16,6 +16,15 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+
+# ABANDONNED FOR IMPRACTICALLITY AND INCONVENIENCE
+# # setting ~/config/zsh as the config file
+# ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"
+# ZSH_ALIASES="${ZSH_CONFIG_HOME}/.aliases.zsh"
+# [ ! -d "$ZSH_CONFIG_HOME" ] && mkdir -p "$ZSH_CONFIG_HOME"
+# [ ! -f "$ZSH_ALIASES" ] && touch "$ZSH_ALIASES"
+# source "$ZSH_ALIASES"
+
 # Zsh plugins 
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
@@ -92,9 +101,9 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen-two.toml)"
 
 
 # teestion aliases 
-source ~/.aliases.zsh
+source ~/.config/zsh/.aliases.zsh
 # alias suffixes TODO : configure for .md, .lua and the likes 
-source ~/.aliases_suff
+source ~/.config/zsh/.aliases_suff
 # TODO learn how to use gloabal zsh aliases : looks hella promising
 # TODO learn how to use zmv
 
