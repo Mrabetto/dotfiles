@@ -13,6 +13,7 @@ color_bg3 = '#2E3E46'
 text_1 = '#385D70'
 blu_2 = '#218EC5'
 orange = '#F08500'
+brown = '#703500'
 color_orange = '#d65d0e'
 color_purple = '#b16286'
 red = '#cc241d'
@@ -166,10 +167,16 @@ newline = true
 	background = 'transparent'
 	template = ' ❯ '
 
-[transient_prompt]
-    foreground = 'p:orange'
-    background = 'transparent'
-    template = '{{ now | date "15:04" }} ❯ '
+# [transient_prompt]
+#     # foreground = 'p:orange'
+#     # background = 'transparent'
+#     background = "p:orange"
+#     foreground = "p:brown"
+#     filler = '.'
+#     # template = '''<#d79921,transparent>╰󰄴 took <green,transparent>{{.Segments.Executiontime.FormattedMs}}</></>\n<p:orange,transparent></>{{ now | date "15:04" }} <p:orange,transparent></> ❯ </>'''
+#     template = '''<#d79921,transparent>╰󰄴 took </><green,transparent>{{ if .Segments.Executiontime.FormattedMs }}{{.Segments.Executiontime.FormattedMs}}{{ end }}</>
+# <p:orange,transparent></>{{ now | date "15:04" }} <p:orange,transparent> ❯ </>'''
+#     [[transient_prompt.segements]]
     # template = "{{ .Shell }}> "
 
 	#  [[transient_prompt.segments]]

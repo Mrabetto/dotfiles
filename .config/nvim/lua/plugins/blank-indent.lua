@@ -1,4 +1,4 @@
-return {
+local M = {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
@@ -8,3 +8,5 @@ return {
     	require("ibl").setup()
     end,
 }
+
+return {}

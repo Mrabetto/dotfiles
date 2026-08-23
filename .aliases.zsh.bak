@@ -24,7 +24,9 @@ alias cd="z"
 alias ls='ls -hal --color=always --group-directories-first'
 
 # alias for updating : both dnf and flatpaks
-alias update='sudo dnf update && flatpak update'
+BCyan='\033[1;36m'	# Cyan
+NC='\033[0m' 		# No Color
+alias update='sudo dnf update && echo -e "${BCyan}󰄴 Dnf Update :${NC} Done" && echo "" && flatpak update && echo -e "${BCyan}󰄴 Flatpak Update :${NC} Done"'
 
 
 # alias for bat as cat
@@ -32,3 +34,4 @@ alias cat='bat'
 
 # alias for ani-cli to use rofi
 alias anime='ani-cli --rofi'
+
