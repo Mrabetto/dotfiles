@@ -117,7 +117,7 @@ end
 if string.find(vim.uv.os_uname().release,"android") ~= nil then
     -- KDE Markdown is the obsidian vault on android
     wrokspace.name = "phone"
-    wrokspace.path = "~/shared/storage/Kde/markdown"
+    wrokspace.path = "~/storage/shared/Kde/markdown/"
     table.insert(M2.opts.workspaces,wrokspace)
 end
 return M2
