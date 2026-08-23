@@ -138,45 +138,47 @@ return{
       --
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'lua_ls', -- Lua Language server
-        'stylua', -- Used to format Lua code
-        -- You can add other tools here that you want Mason to install
-      })
+      if string.find(vim.uv.os_uname().release,"android") == nil then
+	  vim.list_extend(ensure_installed, {
+	      'lua_ls', -- Lua Language server
+	      'stylua', -- Used to format Lua code
+	      -- You can add other tools here that you want Mason to install
+	  })
+      end
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       for name, server in pairs(servers) do
-        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        vim.lsp.config(name, server)
-        vim.lsp.enable(name)
+	  server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+	  vim.lsp.config(name, server)
+	  vim.lsp.enable(name)
       end
 
-       -- Special Lua Config, as recommended by neovim help docs
+      -- Special Lua Config, as recommended by neovim help docs
       vim.lsp.config('lua_ls', {
-        on_init = function(client)
-          if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
-          end
+	  on_init = function(client)
+	      if client.workspace_folders then
+		  local path = client.workspace_folders[1].name
+		  if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
+	      end
 
-          client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            runtime = {
-              version = 'LuaJIT',
-              path = { 'lua/?.lua', 'lua/?/init.lua' },
-            },
-            workspace = {
-              checkThirdParty = false,
-              -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
-              --  See https://github.com/neovim/nvim-lspconfig/issues/3189
-              library = vim.api.nvim_get_runtime_file('', true),
-            },
-          })
-        end,
-        settings = {
-          Lua = {},
-        },
+	      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+		  runtime = {
+		      version = 'LuaJIT',
+		      path = { 'lua/?.lua', 'lua/?/init.lua' },
+		  },
+		  workspace = {
+		      checkThirdParty = false,
+		      -- NOTE: this is a lot slower and will cause issues when working on your own configuration.
+		      --  See https://github.com/neovim/nvim-lspconfig/issues/3189
+		      library = vim.api.nvim_get_runtime_file('', true),
+		  },
+	      })
+	  end,
+	  settings = {
+	      Lua = {},
+	  },
       })
       vim.lsp.enable 'lua_ls'
-    end,
+  end,
   }

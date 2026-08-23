@@ -1,4 +1,4 @@
-return {
+local mason = {
     {
 	"williamboman/mason-lspconfig.nvim",
 	opts = {
@@ -50,3 +50,8 @@ return {
 	},
     },
 }
+if string.find(vim.uv.os_uname().release,"android") ~= nil then
+	mason[1].opts.ensure_installed = {}
+end
+
+return mason
