@@ -1,4 +1,3 @@
-
 local M2 = {
     "obsidian-nvim/obsidian.nvim",
     version = "*", -- use latest release, remove to use latest commit
@@ -104,9 +103,15 @@ local wrokspace = {
 if vim.uv.os_uname().machine =="x86_64" then
     -- Misc is the main obsidian workspace if the OS is linux on a x86 machine, most likely my desktop, others would be wsl have not specified a windows vault yet
     if vim.uv.os_uname().sysname == "Linux" then
-	wrokspace.name = "Misc"
-	wrokspace.path = "~/Documents/Research/Misc/"
-	table.insert(M2.opts.workspaces,wrokspace)
+	if string.find(vim.uv.os_uname().release,"wsl") == nil then
+	    wrokspace.name = "Misc"
+	    wrokspace.path = "~/Documents/Research/Misc/"
+	    table.insert(M2.opts.workspaces,wrokspace)
+	else
+	    wrokspace.name = "Misc"
+	    wrokspace.path = "~/Documents/vault"
+	    table.insert(M2.opts.workspaces,wrokspace)
+	end
     elseif vim.uv.os_uname().sysname == "Windows" then
 	wrokspace.name = "Misc"
 	wrokspace.path = "~/Documents/Research/Misc/"

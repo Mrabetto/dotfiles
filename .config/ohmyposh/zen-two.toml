@@ -11,6 +11,7 @@ color_bg1 = '#00A2F0'
 color_bg2 = '#2A3033'
 color_bg3 = '#2E3E46'
 text_1 = '#385D70'
+# text_1 = "{{ if .Segments.Session.SSHSession}} # {{end}}"
 blu_2 = '#218EC5'
 orange = '#F08500'
 brown = '#703500'
@@ -34,6 +35,8 @@ newline = true
 	# trailing_diamond = ''
 	foreground = 'p:text_1'
 	background = 'p:main'
+	foreground_templates = ['{{ if .Segments.Session.SSHSession}}p:brown{{end}}', 'p:text_1']
+	background_templates = ['{{ if .Segments.Session.SSHSession}}p:orange{{end}}', 'p:main']
 
     [[blocks.segments]]
 	trailing_diamond = ''
@@ -41,6 +44,8 @@ newline = true
 	template = '{{ .UserName }} '
 	foreground = 'p:text_1'
 	background = 'p:main'
+	foreground_templates = ['{{ if .SSHSession}}p:brown{{end}}', 'p:text_1']
+	background_templates = ['{{ if .SSHSession}}p:orange{{end}}', 'p:main']
 	type = 'session'
 	style = 'accordion'
 
