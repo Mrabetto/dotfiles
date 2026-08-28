@@ -34,6 +34,7 @@ alias update='sudo dnf update && echo -e "${BCyan}󰄴 Dnf Update :${NC} Done" &
 if [[ "$OSTYPE" == "linux-android" ]] then
     alias dnf="nala"
     alias update="nala update"
+    export NOTE="~/storage/shared/Kde/markdown/"
 fi
 
 
@@ -49,3 +50,7 @@ alias gsw="git switch"
 alias gcom="git commit"
 alias gpush="git push -u origin"
 alias gpull="git pull"
+
+
+# zsh-related aliases :
+alias zreload="source ~/.zshrc"

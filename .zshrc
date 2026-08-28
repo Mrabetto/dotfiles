@@ -113,4 +113,4 @@ fi
 
 # $(thefuck --alias)
 
-eval $(thefuck --alias fk)
+# eval $(thefuck --alias fk)
