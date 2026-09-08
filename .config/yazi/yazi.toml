@@ -70,6 +70,9 @@ aseprite = [
 odin= [
 	{ run = "odin run %s1 -file", desc = "Run Odin Program", for = "unix", orphan = true},
 ]
+pdf =[
+	{ run = "zathura %s" , desc = "Open PDF file in Zathura", for = "linux", orphan = true},
+]
 
 [open]
 prepend_rules = [
@@ -78,6 +81,7 @@ prepend_rules = [
 	# { name = "*.aseprite", use =  ["Pixel","reveal"]},
 	# Odin run files
 	{ url = "*.odin" , use = ["edit","odin", "reveal"]},
+	{ url = "*.pdf" , use = ["pdf", "reveal"]},
 ]
 rules = [
 	# Folder
