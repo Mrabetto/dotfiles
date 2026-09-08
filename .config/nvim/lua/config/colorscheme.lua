@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("base46-yoru")
