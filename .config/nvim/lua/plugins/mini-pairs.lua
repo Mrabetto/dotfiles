@@ -1,6 +1,6 @@
-return{ 'nvim-mini/mini.pairs', version = false, 
+return{ 'nvim-mini/mini.pairs', version = false,
 config = function()
-    require('mini.pairs').setup() 
+    require('mini.pairs').setup()
 end
 }
 
