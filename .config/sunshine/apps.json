@@ -1,0 +1,89 @@
+{
+    "apps": [
+        {
+            "image-path": "desktop.png",
+            "name": "Desktop"
+        },
+        {
+            "auto-detach": true,
+            "cmd": "lutris lutris:rungameid/9",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/noriyaki/.config/sunshine/covers/elden-ring.png",
+            "name": "Elden Ring",
+            "output": "",
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "cmd": "lutris lutris:rungameid/3",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/noriyaki/.config/sunshine/covers/hades.png",
+            "name": "Hades",
+            "output": "",
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "cmd": "lutris lutris:rungameid/15",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/noriyaki/.config/sunshine/covers/igdb_117023.png",
+            "name": "Jump King",
+            "output": "",
+            "wait-all": true
+        },
+        {
+            "image-path": "desktop.png",
+            "name": "Low Res Desktop",
+            "prep-cmd": [
+                {
+                    "do": "xrandr --output HDMI-1 --mode 1920x1080",
+                    "undo": "xrandr --output HDMI-1 --mode 1920x1200"
+                }
+            ]
+        },
+        {
+            "auto-detach": true,
+            "cmd": "lutris lutris:rungameid/17",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/noriyaki/.config/sunshine/covers/marvel's-spider-man-miles-morales.png",
+            "name": "Marvel's Spider-Man Miles Morales",
+            "output": "",
+            "wait-all": true
+        },
+        {
+            "auto-detach": true,
+            "cmd": "lutris lutris:rungameid/16",
+            "elevated": false,
+            "exclude-global-prep-cmd": false,
+            "exit-timeout": 5,
+            "image-path": "/home/noriyaki/.config/sunshine/covers/stardew-valley.png",
+            "name": "Stardew Valley",
+            "output": "",
+            "wait-all": true
+        },
+        {
+            "detached": [
+                "setsid steam steam://open/bigpicture"
+            ],
+            "image-path": "steam.png",
+            "name": "Steam Big Picture",
+            "prep-cmd": [
+                {
+                    "do": "",
+                    "undo": "setsid steam steam://close/bigpicture"
+                }
+            ]
+        }
+    ],
+    "env": {
+        "PATH": "$(PATH):$(HOME)/.local/bin"
+    }
+}

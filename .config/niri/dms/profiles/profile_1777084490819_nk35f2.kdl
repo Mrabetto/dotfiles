@@ -6,6 +6,15 @@ output "PNP(JRY) DP 0x00000001" {
     position x=0 y=0
 }
 
+output "PNP(SAC) LED MONITOR 0x00000001" {
+    mode "1920x1080@240.001"
+    scale 1
+    position x=1280 y=0
+    layout {
+        always-center-single-column
+    }
+}
+
 output "Sony SONY TV 0x01010101" {
     mode "1920x1080@60.000"
     scale 1

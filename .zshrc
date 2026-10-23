@@ -112,5 +112,10 @@ if type rg &> /dev/null; then
 fi
 
 # $(thefuck --alias)
+# What thefuck should have been doing this whole time 
+setopt correct
+setopt autocd
 
 # eval $(thefuck --alias fk)
+# sourcing our delta completion script
+source ~/.config/zsh/delta_comp.zsh

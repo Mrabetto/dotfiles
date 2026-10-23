@@ -10,8 +10,13 @@ alias kik="NVIM_APPNAME=nvim-kickstart nvim"
 export EDITOR="nvim"
 
 # alias for neovim 12
-if [[ $HOME == "/home/noriyaki/" ]]; then
+if [[ $HOME == "/home/noriyaki" ]]; then
 alias vi12="NVIM_APPNAME=vi12 ~/.local/bin/nvim-0.12/bin/nvim"
+fi
+
+# alias for main obsidian vault on linux desktop
+if [[ $HOME == "/home/noriyaki" ]]; then
+    export vault="$HOME/Documents/Research/Misc/"
 fi
 
 # grepping from history
@@ -27,7 +32,9 @@ alias ls='ls -hal --color=always --group-directories-first'
 # alias for updating : both dnf and flatpaks
 BCyan='\033[1;36m'	# Cyan
 NC='\033[0m' 		# No Color
-alias update='sudo dnf update && echo -e "${BCyan}󰄴 Dnf Update :${NC} Done" && echo "" && flatpak update && echo -e "${BCyan}󰄴 Flatpak Update :${NC} Done"'
+alias update='(){
+    sudo dnf --refresh update ${1} && echo -e "${BCyan}󰄴 Dnf Update :${NC} Done" && echo "" && flatpak update ${2} && echo -e "${BCyan}󰄴 Flatpak Update :${NC} Done"
+}'
 
 # alias for dnf in android
 # [ $OSTYPE == "linux-android"] && alias dnf="nala"
@@ -51,6 +58,8 @@ alias gcom="git commit"
 alias gpush="git push -u origin"
 alias gpull="git pull"
 
+# lazygit alias
+alias lg="lazygit"
 
 # zsh-related aliases :
 alias zreload="source ~/.zshrc"

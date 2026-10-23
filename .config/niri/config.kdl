@@ -329,6 +329,11 @@ window-rule {
     open-on-workspace "Notes"
 }
 
+window-rule {
+    match app-id="org.pwmt.zathura"
+    default-column-width {fixed 1257;}
+}
+
 
 workspace "Terminal" {}
 workspace "Browser" {}
@@ -423,7 +428,11 @@ window-rule {
     // open-fullscreen true 
 }
 
-
+window-rule {
+    match app-id="helium"
+    open-on-workspace "Browser"
+    open-maximized true
+}
 
 window-rule {
     match app-id=r#"app.zen_browser.zen$"#

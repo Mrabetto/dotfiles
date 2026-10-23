@@ -16,14 +16,21 @@ vim.keymap.set({"n","v"},"<leader><Tab>","<cmd>tabnext<CR>",{desc="Tab next"})
 vim.keymap.set({"n","v"},"<S-Tab>","<cmd>tabprev<CR>",{desc="Tab next"})
 
 -- keys for navigating windows within a tab/buffer(?)
-vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Window movement test" })
+-- Now deprecated since I use tmux
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window movement test" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window movement test" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window movement test" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window movement test" })
 
+-- moving lines up and down
+vim.keymap.set({'n'},'<A-j>',"<cmd>move +1<CR>",{desc = "move line down"})
+vim.keymap.set({'n'},'<A-k>',"<cmd>move -2<CR>",{desc = "move line up"})
+-- now for visual mode 
+vim.keymap.set({'v'},'<A-j>',":m '>+1<CR>gv",{desc = "move line down in visual mode without indentation"})
+vim.keymap.set({'v'},'<A-k>',":m '<-2<CR>gv",{desc = "move line up in visual mode without indentation"})
 
 -- delete single character without copying into register
-vim.keymap.set('n', 'x', '"_x', opts)
+vim.keymap.set('n', 'x', '"_x')
 
 
 -- Shortcut for searching your Neovim configuration files
@@ -62,7 +69,8 @@ vim.keymap.set('n', '<leader>ft', function()
 end,  { desc = "Select colorscheme" })
 
 
-
+-- keymap to empty to the search register
+vim.keymap.set('n', '<leader>cl', ":nohl<CR>")
 
 
 

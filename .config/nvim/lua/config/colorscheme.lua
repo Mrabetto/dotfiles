@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("base46-yoru")
+vim.cmd.colorscheme("base46-dark_horizon")
